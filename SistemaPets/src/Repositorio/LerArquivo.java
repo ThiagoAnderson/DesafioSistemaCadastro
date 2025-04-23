@@ -1,5 +1,5 @@
 package Repositorio;
 
 public interface LerArquivo {
-    public void lerArquivo();
+    public  void lerArquivo();
 }
