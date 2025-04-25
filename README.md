@@ -23,6 +23,8 @@ Versão do Java: Java 8 - JDK-21
 
 ## Progresso
 -Leitura do arquivo contendo as perguntas.
+
 -Cadastro de um novo Pet.
+
 -Registro do novo Pet em um arquivo.
 
