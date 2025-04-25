@@ -8,7 +8,7 @@ Instagram: [@devmagro 📸](https://instagram.com/devmagro)
 
 YouTube: [@devmagro 🎥](https://www.youtube.com/@devmagro)
 
-LinkDesafio: [Repositorio GitHub](https://github.com/karilho/desafioCadastro)
+LinkDesafio: [Domain GitHub](https://github.com/karilho/desafioCadastro)
 
 ## Objetivo
 Implementar um Sistema de Cadastros no CLI, visando testar conhecimentos adquiridos ao longo dos estudos em Java, 
@@ -23,6 +23,6 @@ Versão do Java: Java 8 - JDK-21
 
 ## Progresso
 -Leitura do arquivo contendo as perguntas.
-
--Construçao do Menu.
+-Cadastro de um novo Pet.
+-Registro do novo Pet em um arquivo.
 

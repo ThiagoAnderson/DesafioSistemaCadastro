@@ -1,3 +1,7 @@
+package Domain;
+
+import Services.CadastrarPet;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -24,7 +28,9 @@ public class Menu {
     private static void escolha(int choice){
         switch (choice){
             case 1:
-                System.out.println("Cadastrando um novo pet...");
+                Arquivo arquivo = new Arquivo();
+                arquivo.lerArquivo();
+                CadastrarPet.cadastrar();
                 break;
             case 2:
                 System.out.println("Alterando dados de um pet...");
