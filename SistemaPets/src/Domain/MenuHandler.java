@@ -1,0 +1,45 @@
+package Domain;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class MenuHandler {
+    public static int menuChoice() {
+            try {
+                Scanner input = new Scanner(System.in);
+                int escolha = input.nextInt();
+                return escolha;
+            }catch (InputMismatchException e) {
+                System.out.print("Apenas números permitidos, tente novamente: ");
+                MenuHandler.menuChoice();
+            }
+            return 0;
+        }
+    public static void menuRedirect(){
+        int escolha = menuChoice();
+        switch (escolha){
+            case 1:
+                System.out.println("Cadastrando novo pet");
+                break;
+            case 2:
+                System.out.println("Alterando pet existente");
+                break;
+            case 3:
+                System.out.println("Deletando pet cadastrado");
+                break;
+            case 4:
+                System.out.println("Listando todos os pets Cadastrados");
+                break;
+            case 5:
+                System.out.println("Listar pets por critério(idade,nome,raça)");
+                break;
+            case 6:
+                System.out.println("Saindo da aplicação...");
+                break;
+            default:
+                System.out.println("Erro na escolha! Selecione novamente");
+                menuRedirect();
+        }
+    }
+}
+
