@@ -1,10 +1,5 @@
 package Domain;
 
-import Services.CadastrarPet;
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class Menu {
     public static void opcoes() {
         System.out.println("SELECIONE UMA OPÇÃO ABAIXO: ");
@@ -17,32 +12,3 @@ public class Menu {
                 "6-Sair");
     }
 }
-
-//    private static void escolha(int choice){
-//        switch (choice){
-//            case 1:
-//                Arquivo arquivo = new Arquivo();
-//                arquivo.lerArquivo();
-//                CadastrarPet.cadastrar();
-//                break;
-//            case 2:
-//                System.out.println("Alterando dados de um pet...");
-//                break;
-//            case 3:
-//                System.out.println("Deletando pet cadastrado...");
-//                break;
-//            case 4:
-//                System.out.println("Listando pets cadastrados...");
-//                break;
-//            case 5:
-//                System.out.println("Listando pets por criterio(idade,nome,raça)...");
-//                break;
-//            case 6:
-//                System.out.println("Saindo do menu...");
-//                break;
-//            default:
-//                System.out.println("Opção invalida, digite novamente.");
-//                Menu.opcoes();
-//        }
-//    }
-//}

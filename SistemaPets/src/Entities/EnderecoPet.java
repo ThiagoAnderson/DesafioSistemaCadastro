@@ -6,6 +6,9 @@ public class EnderecoPet {
     public String cidade;
     public String rua;
 
+    public EnderecoPet() {
+    }
+
     public EnderecoPet(String numero, String cidade, String rua) {
         this.numero = numero;
         this.cidade = cidade;
@@ -35,4 +38,6 @@ public class EnderecoPet {
     public void setRua(String rua) {
         this.rua = rua;
     }
+
+
 }

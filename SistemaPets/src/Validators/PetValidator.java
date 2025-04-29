@@ -26,4 +26,16 @@ public class PetValidator {
         }
         return true;
     }
+    public static boolean validarNumero(String entrada){
+        if(entrada == null || entrada.isEmpty()){
+            return true;
+        }
+        for(int i=0; i < entrada.length(); i++){
+            char c = entrada.charAt(i);
+            if(!Character.isDigit(c)){
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -8,11 +8,11 @@ public class Pet {
     private TipoPet tipoPet;
     private SexoPet sexoPet;
     private EnderecoPet enderecoPet;
-    private Double idade;
-    private Double peso;
+    private String idade;
+    private String peso;
     private String raca;
 
-    public Pet(String nome, TipoPet tipoPet, SexoPet sexoPet, EnderecoPet enderecoPet, Double idade, Double peso, String raca) {
+    public Pet(String nome, TipoPet tipoPet, SexoPet sexoPet, EnderecoPet enderecoPet, String idade, String peso, String raca) {
         this.nome = nome;
         this.tipoPet = tipoPet;
         this.sexoPet = sexoPet;
@@ -54,19 +54,19 @@ public class Pet {
         this.enderecoPet = enderecoPet;
     }
 
-    public Double getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(Double idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
-    public Double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(Double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
@@ -76,5 +76,18 @@ public class Pet {
 
     public void setRaca(String raca) {
         this.raca = raca;
+    }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "nome='" + nome + '\'' +
+                ", tipoPet=" + tipoPet +
+                ", sexoPet=" + sexoPet +
+                ", enderecoPet=" + "Nº= "+enderecoPet.getNumero()+" Rua= " + enderecoPet.getRua()+" Cidade= " + enderecoPet.getCidade() +
+                ", idade='" + idade + '\'' +
+                ", peso='" + peso + '\'' +
+                ", raca='" + raca + '\'' +
+                '}';
     }
 }
