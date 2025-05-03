@@ -111,7 +111,7 @@ public class CadastroPetService {
                 ;
                 if (idadeNumerica < 1) {
                     petI = String.valueOf(idadeNumerica);
-                    petI = "0." + petI;
+
                 } else {
                     petI = String.valueOf(idadeNumerica.floatValue());
                 }
@@ -142,7 +142,7 @@ public class CadastroPetService {
                 racaPet = NAO_INFORMADO;
             }
             if (!PetValidator.validarCaracteres(raca)) {
-                throw new IllegalArgumentException("Characteres estranho não saõ permitidos");
+                throw new IllegalArgumentException("Characteres estranho não são permitidos");
             }
 
             Pet petCadastrado = new Pet(nomeValido, tipoPet, sexoPet, enderecoPet, petI, pesoPet, racaPet);

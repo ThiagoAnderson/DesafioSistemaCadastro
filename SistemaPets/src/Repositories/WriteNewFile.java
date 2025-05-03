@@ -29,19 +29,19 @@ public class WriteNewFile {
 
         try (FileWriter fw = new FileWriter(file);
              BufferedWriter bw = new BufferedWriter(fw)) {
-            bw.write("1 - " + pet.getNome());
+            bw.write(" - " + pet.getNome());
             bw.newLine();
-            bw.write("2 - " + pet.getTipoPet().toString());
+            bw.write(" - " + pet.getTipoPet().toString());
             bw.newLine();
-            bw.write("3 - " + pet.getSexoPet().toString());
+            bw.write(" - " + pet.getSexoPet().toString());
             bw.newLine();
-            bw.write("4 - " +pet.getEnderecoPet().getNumero()  + "," + pet.getEnderecoPet().getCidade() + "," +pet.getEnderecoPet().getRua() );
+            bw.write(" - " +pet.getEnderecoPet().getNumero()  + "," + pet.getEnderecoPet().getCidade() + "," +pet.getEnderecoPet().getRua() );
             bw.newLine();
-            bw.write("5 - " + pet.getIdade() + " anos");
+            bw.write(" - " + pet.getIdade() + " anos");
             bw.newLine();
-            bw.write("6 - " + pet.getPeso() + "kg");
+            bw.write(" - " + pet.getPeso() + "kg");
             bw.newLine();
-            bw.write("7 - " + pet.getRaca());
+            bw.write(" - " + pet.getRaca());
             bw.newLine();
             bw.flush();
 

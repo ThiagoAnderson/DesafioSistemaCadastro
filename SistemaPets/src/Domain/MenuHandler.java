@@ -4,13 +4,14 @@ import Entities.Pet;
 import Repositories.FileReaderService;
 import Repositories.InputUser;
 import Repositories.WriteNewFile;
-import Services.CadastroPetService;
+import Services.*;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuHandler {
-    public static int menuChoice() {
+    private static int menuChoice() {
         try {
             Scanner input = new Scanner(System.in);
             int escolha = input.nextInt();
@@ -29,16 +30,28 @@ public class MenuHandler {
                  salvarPetArquivo(MenuHandler.coletarDadosPet());
                 break;
             case 2:
-                System.out.println("Alterando pet existente");
+                Menu.opcoesEdicao();
+                String opc = InputUser.inputUser();
+                if(opc.equals("1")){
+                    BuscarPetService.buscarTodos();
+                    System.out.print("Escolha o número do pet que deseja editar: ");
+                    int edicaoEscolha = Integer.parseInt(InputUser.inputUser());
+                    try {
+                        EditarPetService.editarEspecifico(edicaoEscolha);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
                 break;
             case 3:
-                System.out.println("Deletando pet cadastrado");
                 break;
             case 4:
-                System.out.println("Listando todos os pets Cadastrados");
+                System.out.println("Lista De Todos os Pets:");
+                BuscarPetService.buscarTodos();
                 break;
             case 5:
-                System.out.println("Listar pets por critério(idade,nome,raça)");
+                Menu.opcoesBusca();
+                BuscarPetService.BuscarPorCriterio();
                 break;
             case 6:
                 System.out.println("Saindo da aplicação...");
