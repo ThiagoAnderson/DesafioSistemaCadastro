@@ -44,6 +44,7 @@ public class MenuHandler {
                 }
                 break;
             case 3:
+                DeletarPetService.deletarPet();
                 break;
             case 4:
                 System.out.println("Lista De Todos os Pets:");
