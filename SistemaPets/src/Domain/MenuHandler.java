@@ -11,6 +11,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuHandler {
+    /*
     private static int menuChoice() {
         try {
             Scanner input = new Scanner(System.in);
@@ -33,7 +34,7 @@ public class MenuHandler {
                 Menu.opcoesEdicao();
                 String opc = InputUser.inputUser();
                 if(opc.equals("1")){
-                    BuscarPetService.buscarTodos();
+                   // BuscarPetService.buscarTodos();
                     System.out.print("Escolha o número do pet que deseja editar: ");
                     int edicaoEscolha = Integer.parseInt(InputUser.inputUser());
                     try {
@@ -78,5 +79,6 @@ public class MenuHandler {
     private static void salvarPetArquivo(Pet pet){
         WriteNewFile.cadastrarArquivoPet(pet);
     }
+    */
 }
 

@@ -7,6 +7,7 @@ import Repositories.InputUser;
 import java.io.*;
 
 public class DeletarPetService {
+    /*
     public static void deletarPet() {
         File pasta = new File("C:\\Dev\\DesafioSistemaCadastro\\SistemaPets\\src\\Repositories\\petsCadastrados");
         File[] arquivos = pasta.listFiles();
@@ -63,4 +64,5 @@ public class DeletarPetService {
         Menu.opcoes();
         MenuHandler.menuRedirect();
     }
+    */
 }

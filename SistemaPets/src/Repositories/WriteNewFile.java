@@ -35,11 +35,11 @@ public class WriteNewFile {
             bw.newLine();
             bw.write("3 - " + pet.getSexoPet().toString());
             bw.newLine();
-            bw.write("4 - " +pet.getEnderecoPet().getNumero() + "," +pet.getEnderecoPet().getRua()+ pet.getEnderecoPet().getCidade());
+            bw.write("4 - " +pet.getEnderecoPet().getNumero() + "," +pet.getEnderecoPet().getRua()+ ","+pet.getEnderecoPet().getCidade());
             bw.newLine();
             bw.write("5 - " + pet.getIdade() + " anos");
             bw.newLine();
-            bw.write("6 - " + pet.getPeso() + "kg");
+            bw.write("6 - " + pet.getPeso() + " kg");
             bw.newLine();
             bw.write("7 - " + pet.getRaca());
             bw.newLine();
