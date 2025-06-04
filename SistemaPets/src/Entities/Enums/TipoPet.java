@@ -1,6 +1,6 @@
 package Entities.Enums;
 
-public enum  TipoPet {
+public enum TipoPet {
     GATO,
     CACHORRO
 }

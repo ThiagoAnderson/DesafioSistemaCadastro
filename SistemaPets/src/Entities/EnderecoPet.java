@@ -1,18 +1,18 @@
 package Entities;
 
 public class EnderecoPet {
-
+    public String rua;
     public String numero;
     public String cidade;
-    public String rua;
+
 
     public EnderecoPet() {
     }
 
-    public EnderecoPet(String numero, String cidade, String rua) {
+    public EnderecoPet(String rua, String numero, String cidade) {
+        this.rua = rua;
         this.numero = numero;
         this.cidade = cidade;
-        this.rua = rua;
     }
 
     public String getNumero() {
