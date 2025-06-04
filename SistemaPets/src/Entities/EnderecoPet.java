@@ -9,11 +9,12 @@ public class EnderecoPet {
     public EnderecoPet() {
     }
 
-    public EnderecoPet(String rua, String numero, String cidade) {
+    public EnderecoPet(String numero,String rua,String cidade) {
         this.rua = rua;
         this.numero = numero;
         this.cidade = cidade;
     }
+
 
     public String getNumero() {
         return numero;

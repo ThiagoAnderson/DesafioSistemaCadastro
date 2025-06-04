@@ -1,10 +1,12 @@
 package Services;
 
+import Entities.EnderecoPet;
 import Entities.Enums.SexoPet;
 import Entities.Enums.TipoPet;
 import Entities.Pet;
 import Repositories.FileReaderService;
 import Repositories.InputUser;
+import Repositories.WriteNewFile;
 import Validators.PetValidator;
 
 import static Validators.PetValidator.validarApenasNumeros;
@@ -38,11 +40,14 @@ public class CadastroPetService {
         if (tipoPet != TipoPet.GATO && tipoPet != TipoPet.CACHORRO) {
             throw new IllegalArgumentException("Tipo de pet inválido, apenas GATO e CACHORRO permitidos");
         }
-        return resposta;
+        return resposta.toUpperCase();
     }
     private static String sexo(){
         FileReaderService.readLine(path, 3);
         String resposta = InputUser.inputUser();
+        if(resposta.equals("Fêmea") || resposta.equals("FÊMEA")){
+            resposta = "FEMEA";
+        }
         SexoPet sexoPet;
         try {
             sexoPet = SexoPet.valueOf(resposta.toUpperCase());
@@ -53,29 +58,47 @@ public class CadastroPetService {
         if (sexoPet != SexoPet.FEMEA && sexoPet != SexoPet.MACHO) {
             throw new IllegalArgumentException("Sexo do pet inválido, apenas MACHO e FEMEA");
         }
-        return resposta;
+        return resposta.toUpperCase();
     }
-    private static String[] endereco(){
-        FileReaderService.readLine(path,4);
+    private static String[] endereco() {
+        FileReaderService.readLine(path, 4);
         String resposta = InputUser.inputUser();
+        String[] partes = resposta.split(",");
+
         String[] respostaCompleta = new String[3];
-        if(resposta.split(",").length == 2){
+
+        if (partes.length == 2) {
+            String rua = partes[0].trim();
+            String cidade = partes[1].trim();
+
+            if (rua.isEmpty() || cidade.isEmpty()) {
+                System.out.println("Rua e cidade são obrigatórias se o número for omitido.");
+                return endereco();
+            }
+
             respostaCompleta[0] = NAO_INFORMADO;
-            respostaCompleta[1] = resposta.split(",")[0];
-            respostaCompleta[2] = resposta.split(",")[1];
+            respostaCompleta[1] = rua;
+            respostaCompleta[2] = cidade;
             return respostaCompleta;
         }
-        if(resposta.split(",").length < 2){
-            System.out.println("Apenas o numero da casa pode ser omitido, rua e cidade são obrigatórias");
-            return endereco();
-        }
-        if (resposta.split(",").length == 3) {
-            respostaCompleta[0] = resposta.split(",")[0];
-            respostaCompleta[1] = resposta.split(",")[1];
-            respostaCompleta[2] = resposta.split(",")[2];
+
+        if (partes.length == 3) {
+            String numero = partes[0].trim();
+            String rua = partes[1].trim();
+            String cidade = partes[2].trim();
+
+            if (numero.isEmpty() || rua.isEmpty() || cidade.isEmpty()) {
+                System.out.println("Nenhum dos campos pode ser vazio.");
+                return endereco();
+            }
+
+            respostaCompleta[0] = numero;
+            respostaCompleta[1] = rua;
+            respostaCompleta[2] = cidade;
             return respostaCompleta;
         }
-        System.out.println("Formato inválido.Preencha os três campos ou omita apenas o numero da casa");
+
+        System.out.println("Formato inválido. Informe: [número],[rua],[cidade] ou apenas [rua],[cidade].");
         return endereco();
     }
     private static String idade() {
@@ -87,7 +110,7 @@ public class CadastroPetService {
             return idade();
         }
 
-        if (respostaIdade.equalsIgnoreCase("NAO")) {
+        if (respostaIdade.equalsIgnoreCase("NAO") || respostaIdade.equalsIgnoreCase("NÃO")) {
             FileReaderService.readLine(path, 5);
             System.out.print("Digite a idade em anos (até 20): ");
             String resposta = InputUser.inputUser();
@@ -174,8 +197,18 @@ public class CadastroPetService {
         }
         return resposta;
     }
+    public static void novoPet(){
+        String nome = nome();
+        String tipo = tipo();
+        String sexo = sexo();
+        String[] endereco = endereco();
+        String idade = idade();
+        String peso = peso();
+        String raca = raca();
 
-
+        Pet pet = new Pet(nome,TipoPet.valueOf(tipo),SexoPet.valueOf(sexo),new EnderecoPet(endereco[0],endereco[1],endereco[2]),idade,peso,raca);
+        WriteNewFile.cadastrarArquivoPet(pet);
+    }
 }
 
 

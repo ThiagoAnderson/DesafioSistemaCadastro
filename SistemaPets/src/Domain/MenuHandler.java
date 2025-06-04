@@ -72,7 +72,8 @@ public class MenuHandler {
         String idade = InputUser.inputUser();
         String peso = InputUser.inputUser();
         String raca = InputUser.inputUser();
-        return CadastroPetService.cadastrarPet(nome,tipo,sexo,endereco,idade,peso,raca);
+       // return CadastroPetService.cadastrarPet(nome,tipo,sexo,endereco,idade,peso,raca);
+        return null;
     }
     private static void salvarPetArquivo(Pet pet){
         WriteNewFile.cadastrarArquivoPet(pet);
